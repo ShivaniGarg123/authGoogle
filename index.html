@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Firebase Firestore for web</title></head>
+<body>
+<button onclick="GoggleLogin()">Google Login</button>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+</body>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyD3P7Y-hu_hMcFgVBT7yYJCz5LrYDCs_Uc",
+        authDomain: "tutorial-3948a.firebaseapp.com",
+        databaseURL: "https://tutorial-3948a.firebaseio.com",
+        projectId: "tutorial-3948a",
+        storageBucket: "",
+        messagingSenderId: "173999573993",
+        appId: "1:173999573993:web:7eee0ee3aa1e4a04"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+
+    function GoggleLogin(){
+
+        var provider = new firebase.auth.GoogleAuthProvider();
+        //provider.addScope('profile');
+        //provider.addScope('https://www.googleapis.com/auth/drive');
+
+        firebase.auth().signInWithPopup(provider).then(function(result) {
+            alert(result.user.displayName);
+        }).catch(function(err) {
+            console.log(err)
+        });
+
+    }
+</script>
+
+</html>
